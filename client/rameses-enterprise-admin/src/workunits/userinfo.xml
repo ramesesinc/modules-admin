@@ -1,0 +1,16 @@
+<workunit>
+    <invokers>
+        <invoker type="sys_user:open" action="open" caption="User"  target="popup"/>
+        
+        <invoker type="formActions" action="_exit" caption="Close"/>
+        <invoker type="formActions" caption="Edit" action="edit"/>
+        <invoker type="formActions" caption="Reset Password" action="resetPassword" 
+                 mnemonic="r" visibleWhen="#{initiator != 'create'}"/>
+    </invokers>
+    
+    <code class="com.rameses.admin.models.UserModel" />
+   
+    <pages>
+        <page template="com.rameses.admin.views.UserPage"/>
+    </pages>
+</workunit>

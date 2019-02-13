@@ -1,0 +1,10 @@
+<workunit schemaName="sys_org">
+    <invokers>
+        <invoker type="sys_org:create" caption="Org Information" action="create" target="popup"/>
+        <invoker type="sys_org:open" caption="Org Information" action="open"  target="popup"/>
+    </invokers>
+    <code class="com.rameses.admin.models.OrgModel" />
+    <pages>
+        <page template="com.rameses.admin.views.OrgPage"/>
+    </pages>
+</workunit>

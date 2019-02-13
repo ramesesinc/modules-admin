@@ -1,0 +1,10 @@
+<workunit extends="com/rameses/seti2/templates/CrudList.xml" schemaName="sys_org">
+    <invokers>
+        <invoker type="org:manage"
+                cols="objid,code,name"
+                customFilter="orgclass =:orgclass"
+                orderBy="code"
+                 action="init" />
+    </invokers>
+    <code class="com.rameses.admin.models.OrgListModel" />
+</workunit>
