@@ -1,6 +1,8 @@
 [getLookup]
 SELECT * FROM sys_usergroup 
-WHERE objid LIKE $P{searchtext}
+WHERE objid LIKE $P{searchtext}	
+	OR domain LIKE $P{searchtext}	
+	OR role LIKE $P{searchtext}	
 
 [getRootNodes]
 SELECT DISTINCT

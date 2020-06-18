@@ -51,13 +51,13 @@ public class OrgClassPage extends javax.swing.JPanel {
         xTextField2.setName("entity.name"); // NOI18N
         xTextField2.setPreferredSize(new java.awt.Dimension(0, 22));
         xTextField2.setRequired(true);
+        xTextField2.setSpaceChar('_');
         xFormPanel1.add(xTextField2);
 
         xTextField1.setCaption("Title");
         xTextField1.setName("entity.title"); // NOI18N
         xTextField1.setPreferredSize(new java.awt.Dimension(0, 22));
         xTextField1.setRequired(true);
-        xTextField1.setTextCase(com.rameses.rcp.constant.TextCase.NONE);
         xFormPanel1.add(xTextField1);
 
         xLookupField1.setCaption("Parent Class");

@@ -52,6 +52,7 @@ public class UserModel  {
     void initList() {
         usergroups = service.getUsergroups( [objid: entity.objid] );
         domainList = usergroups*.domain?.unique();
+        domainList.sort{ it.toString() }
     }
             
     void init() {
@@ -100,7 +101,7 @@ public class UserModel  {
     def usergroupList = [
         fetchList: { 
             if(!selectedDomain ) return [];
-            return usergroups.findAll{ it.domain == selectedDomain };
+            return usergroups.findAll{ it.domain == selectedDomain }.sort{ it.role.toString() }
         }
     ] as BasicListModel;
     
