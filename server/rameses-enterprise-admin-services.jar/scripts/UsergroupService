@@ -20,24 +20,29 @@ class UsergroupService extends ActiveCrudListService {
 	String pagingKeys = 'ug.objid'
 
 	@ProxyMethod
-	public def getNodes( def o ) {
-		o.userid = env.USERID;
+	public def getNodes( o ) {
+		o.userid = env.USERID; 
 		o.usergroupfilter = "";
-		if (o.usergroupid) o.domain = o.usergroupid;
+		if ( o.usergroupid ) {
+			o.domain = o.usergroupid; 
+		} 
 
-		def list;
-		if( o.root )
+		def list = null;
+		if ( o.root ) {
 			list = em.getRootNodes(o);
-		else
-			list = em.getChildNodes(o);
-		list.each { 
-			if (o.root) it.folder = true;
-			if (it.filetype == 'usergroup-folder') {
-				it.children = [[filetype:'usergroup']];
-			}
 		}
-		return list;
-	}
+		else {
+			list = em.getChildNodes(o);
+		} 
+
+		list.each { 
+			if ( o.root ) it.folder = true;
+			if ( it.filetype == 'usergroup-folder') {
+				it.children = [[filetype:'usergroup']];
+			} 
+		} 
+		return list; 
+	} 
 	
 	
 	/*****
@@ -50,6 +55,7 @@ class UsergroupService extends ActiveCrudListService {
 			[name:'user.username', caption:'User Name' ],
 			[name:'user.lastname', caption:'Last Name' ],
 			[name:'user.firstname', caption:'First Name' ],
+			[name:'role', caption:'Role' ],
 			[name:'org.name', caption:'Org' ],
 			[name:'securitygroup.name', caption:'Security Group' ],
 		];
