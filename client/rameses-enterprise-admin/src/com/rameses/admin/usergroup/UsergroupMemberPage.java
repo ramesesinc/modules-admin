@@ -48,49 +48,50 @@ public class UsergroupMemberPage extends javax.swing.JPanel {
 
         xFormPanel1.setCaptionVAlignment(com.rameses.rcp.constant.UIConstants.CENTER);
 
+        xLabel2.setCaption("User Group");
+        xLabel2.setExpression("#{entity.usergroup.objid}");
+        xLabel2.setVisibleWhen("#{view != 'user'}");
         xLabel2.setBackground(new java.awt.Color(245, 245, 245));
         xLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
-        xLabel2.setCaption("User Group");
         xLabel2.setCaptionWidth(110);
-        xLabel2.setExpression("#{entity.usergroup.objid}");
         xLabel2.setOpaque(true);
         xLabel2.setPreferredSize(new java.awt.Dimension(300, 20));
         xLabel2.setStretchWidth(100);
-        xLabel2.setVisibleWhen("#{view != 'user'}");
         xFormPanel1.add(xLabel2);
 
         xLookupField3.setCaption("User");
-        xLookupField3.setCaptionWidth(110);
+        xLookupField3.setDisableWhen("#{mode == 'open'}");
         xLookupField3.setExpression("#{  entity.user.lastname}, #{entity.user.firstname}");
         xLookupField3.setHandler("lookupUser");
-        xLookupField3.setIndex(-10);
         xLookupField3.setName("entity.user"); // NOI18N
+        xLookupField3.setVisibleWhen("#{view != 'user'}");
+        xLookupField3.setCaptionWidth(110);
+        xLookupField3.setIndex(-10);
         xLookupField3.setPreferredSize(new java.awt.Dimension(300, 20));
         xLookupField3.setRequired(true);
         xLookupField3.setStretchWidth(100);
-        xLookupField3.setVisibleWhen("#{view != 'user'}");
         xFormPanel1.add(xLookupField3);
 
+        xLabel1.setCaption("User name");
+        xLabel1.setExpression("#{entity.user.lastname}, #{entity.user.firstname}");
+        xLabel1.setVisibleWhen("#{view == 'user'}");
         xLabel1.setBackground(new java.awt.Color(245, 245, 245));
         xLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 180, 180)));
-        xLabel1.setCaption("User name");
         xLabel1.setCaptionWidth(110);
-        xLabel1.setExpression("#{entity.user.lastname}, #{entity.user.firstname}");
         xLabel1.setOpaque(true);
         xLabel1.setPreferredSize(new java.awt.Dimension(300, 20));
         xLabel1.setStretchWidth(100);
-        xLabel1.setVisibleWhen("#{view == 'user'}");
         xFormPanel1.add(xLabel1);
 
         xLookupField2.setCaption("User Group");
-        xLookupField2.setCaptionWidth(110);
         xLookupField2.setExpression("#{entity.usergroup.objid}");
         xLookupField2.setHandler("lookupUsergroup");
         xLookupField2.setName("entity.usergroup"); // NOI18N
+        xLookupField2.setVisibleWhen("#{view == 'user'}");
+        xLookupField2.setCaptionWidth(110);
         xLookupField2.setPreferredSize(new java.awt.Dimension(300, 20));
         xLookupField2.setRequired(true);
         xLookupField2.setStretchWidth(100);
-        xLookupField2.setVisibleWhen("#{view == 'user'}");
         xFormPanel1.add(xLookupField2);
 
         xFormPanel2.setOrientation(com.rameses.rcp.constant.UIConstants.HORIZONTAL);
@@ -152,7 +153,7 @@ public class UsergroupMemberPage extends javax.swing.JPanel {
             .add(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .add(xFormPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 186, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
@@ -161,15 +162,15 @@ public class UsergroupMemberPage extends javax.swing.JPanel {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     

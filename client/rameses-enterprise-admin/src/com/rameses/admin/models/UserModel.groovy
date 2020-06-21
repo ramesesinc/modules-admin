@@ -61,8 +61,9 @@ public class UserModel  {
             
     def addUsergroup() { 
         def params = [
-            entity:[objid:"UGM"+ new UID(), user: entity], 
             view: 'user',
+            allowExtActions: false, 
+            entity : [objid: "UGM"+ new UID(), user: entity], 
             saveHandler:{ o->
                 if( !usergroups ) usergroups = [];
                 usergroups << o; 
@@ -78,6 +79,7 @@ public class UserModel  {
         if(!selectedUsergroup) return;
         def params = [
             view: 'user',
+            allowExtActions: false, 
             entity: selectedUsergroup,
             saveHandler: { o->
                 initList();

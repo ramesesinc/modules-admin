@@ -25,13 +25,16 @@ order by ug.domain, ug.role
 
 [getList]
 select distinct 
-	ugm.objid, ugm.user_username, ugm.user_lastname, ugm.user_firstname, 
-	ug.role, ugm.org_name, sg.name AS securitygroup_name 
+	ugm.objid, ugm.usergroup_objid, ugm.user_objid, 
+	ugm.user_username, ugm.user_lastname, ugm.user_firstname, 
+	u.middlename as user_middlename, ugm.org_name, 
+	sg.name AS securitygroup_name  
 from sys_usergroup ug 
 	inner join sys_usergroup_member ugm ON ug.objid=ugm.usergroup_objid ${usergroupfilter} 
+	inner join sys_user u on u.objid = ugm.user_objid 
 	left join sys_securitygroup sg ON ugm.securitygroup_objid=sg.objid 
 where ug.domain = $P{domain} 
-order by ugm.user_lastname, ugm.user_firstname, ug.role  
+order by u.firstname, u.lastname, ugm.usergroup_objid 
 
 [getAdminList]
 SELECT uga.* FROM sys_usergroup_admin uga
