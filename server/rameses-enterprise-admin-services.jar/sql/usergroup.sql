@@ -25,8 +25,8 @@ order by ug.domain, ug.role
 
 [getList]
 select distinct 
-	ugm.objid, ugm.usergroup_objid, ugm.user_objid, 
-	ugm.user_username, ugm.user_lastname, ugm.user_firstname, 
+	ugm.objid, ugm.usergroup_objid, ugm.user_objid, ugm.user_username, 
+	u.lastname as user_lastname, u.firstname as user_firstname, 
 	u.middlename as user_middlename, ugm.org_name, 
 	sg.name AS securitygroup_name  
 from sys_usergroup ug 
