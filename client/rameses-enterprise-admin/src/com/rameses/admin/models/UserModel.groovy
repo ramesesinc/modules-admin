@@ -52,6 +52,7 @@ public class UserModel  {
     void initList() {
         usergroups = service.getUsergroups( [objid: entity.objid] );
         domainList = usergroups*.domain?.unique();
+        domainList.sort{ it.toString() }
     }
             
     void init() {
@@ -60,8 +61,9 @@ public class UserModel  {
             
     def addUsergroup() { 
         def params = [
-            entity:[objid:"UGM"+ new UID(), user: entity], 
             view: 'user',
+            allowExtActions: false, 
+            entity : [objid: "UGM"+ new UID(), user: entity], 
             saveHandler:{ o->
                 if( !usergroups ) usergroups = [];
                 usergroups << o; 
@@ -77,6 +79,7 @@ public class UserModel  {
         if(!selectedUsergroup) return;
         def params = [
             view: 'user',
+            allowExtActions: false, 
             entity: selectedUsergroup,
             saveHandler: { o->
                 initList();
@@ -100,7 +103,7 @@ public class UserModel  {
     def usergroupList = [
         fetchList: { 
             if(!selectedDomain ) return [];
-            return usergroups.findAll{ it.domain == selectedDomain };
+            return usergroups.findAll{ it.domain == selectedDomain }.sort{ it.role.toString() }
         }
     ] as BasicListModel;
     

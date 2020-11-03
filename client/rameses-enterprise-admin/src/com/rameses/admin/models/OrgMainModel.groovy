@@ -27,29 +27,10 @@ class OrgMainModel {
     }
     
     def manageOrgTypes() {
-        return Inv.lookupOpener( "orgmain.action", [:] );
+        return Inv.lookupOpener( "orgmain.action", [ caller: this ]);
     }
-    
-    void reloadOrgTypes() {
-        binding.refresh();
-    }
-    
+        
     void init() {
-        /*
-        try { 
-            Inv.lookup('orgmain.action').each{
-                def a = [
-                    caption : it.properties.actiontitle, 
-                    icon    : it.properties.icon, 
-                    invoker : it 
-                ]; 
-                if (!a.caption) a.caption = it.caption;
-                if (!a.icon) a.icon = 'home/icons/folder.png'; 
-
-                actions << a; 
-            } 
-        } catch(e) {;} 
-        */
     } 
 
     def orgModel = [
@@ -104,4 +85,8 @@ class OrgMainModel {
         }
 
     ] as TileViewModel;
+    
+    void reloadOrgTypes() {
+        orgModel.reload(); 
+    }    
 }       

@@ -13,4 +13,6 @@
         <invoker type="orgmain.action" caption="Manage Organization Types" role="SYSADMIN" 
                  permission="system" index="0" target="popup" action="init"/> 
    </invokers>
+   
+   <code class="com.rameses.admin.models.OrgClassListModel"/> 
 </workunit>

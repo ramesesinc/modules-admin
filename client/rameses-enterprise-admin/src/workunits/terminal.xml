@@ -1,48 +1,18 @@
 <workunit>
     <invokers>
-        <invoker type="terminal:formActions" caption="Generate Keys" target="popup" resizable="false"/>        
-        <invoker type="terminal:formActions" caption="Unassign" action="unassign" 
-            target="process" resizable="false" visibleWhen="#{selectedEntity != null &amp;&amp; selectedEntity.macaddress != null}"/>
+        <invoker type="terminal:list:listActions" 
+                 caption="Generate Keys" target="popup" 
+                 mnemonic="g" resizable="false"/> 
+        
+        <invoker type="terminal:list:listActions" 
+                 caption="Unassign" action="unassign" 
+                 mnemonic="u" resizable="false" target="process"  depends="selectedItem" 
+                 visibleWhen="#{selectedItem != null &amp;&amp; selectedItem.macaddress != null}"/>
     </invokers>
    
-    <code>
-    <![CDATA[
-        import com.rameses.rcp.annotations.*;
-        import com.rameses.rcp.common.*;
-        import com.rameses.osiris2.client.*;
-        import com.rameses.osiris2.common.*;
-
-        public class TerminalController {
-
-            @Service('TerminalAdminService') 
-            def svc;
-        
-            @Caller
-            def caller;
-            
-            def entity = [:];
-            
-            def doOk() {
-                svc.generateKeys([size: entity.size]); 
-                caller?.reload(); 
-                return '_close';
-            } 
-            
-            def doCancel() {
-                return '_close';
-            }
-            
-            void unassign() {
-                if (MsgBox.confirm('You are about to unassign this terminal. Do you want to continue?')) {
-                    svc.unassign(caller?.selectedEntity); 
-                    caller?.reload();
-                } 
-            } 
-        }        
-       ]]>
-   </code>
+    <code class="com.rameses.admin.models.TerminalModel"/>
    
-   <pages>
-       <page template="com.rameses.admin.terminal.GenerateTerminalPage"/> 
-   </pages>
+    <pages>
+        <page template="com.rameses.admin.terminal.GenerateTerminalPage"/> 
+    </pages>
 </workunit>

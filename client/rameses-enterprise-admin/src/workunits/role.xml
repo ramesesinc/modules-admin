@@ -1,4 +1,4 @@
-<workunit schemaName="sys_usergroup">
+<workunit schemaName="sys_usergroup" callerRefreshMethod="search">
     <invokers>
         <!--
         <invoker type="role:create" caption="Role" action="create" target="popup"/>
