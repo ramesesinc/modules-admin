@@ -8,8 +8,8 @@
         <invoker type="sys_usergroup:open" caption="Role" action="open" target="popup"/>
         
     </invokers>
-    <code class="com.rameses.admin.models.RoleModel" />
+    <code class="com.rameses.admin.models.UserGroupModel" />
     <pages>
-        <page template="com.rameses.admin.views.RolePage"/>
+        <page template="com.rameses.admin.views.UserGroupPage"/>
     </pages>
 </workunit>

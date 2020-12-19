@@ -1,0 +1,10 @@
+<workunit schemaName="sys_user_role">
+    <invokers>
+        <invoker type="sys_user_role:open" caption="User Role" 
+                 action="open" index="10" target="popup" />
+    </invokers>
+    <code class="com.rameses.admin.models.UserRoleModel" />
+    <pages>
+        <page template="com.rameses.admin.views.UserRolePage" />
+    </pages>    
+</workunit>

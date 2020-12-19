@@ -1,0 +1,6 @@
+<schema>
+	<element tablename="sys_role">
+		<field name="name" primary="true"/>
+		<field name="title" required="true"/>
+	</element>	
+</schema>	

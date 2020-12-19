@@ -39,21 +39,18 @@ public class UserPage extends javax.swing.JPanel {
         xTextField5 = new com.rameses.rcp.control.XTextField();
         xTextField6 = new com.rameses.rcp.control.XTextField();
         xTextField4 = new com.rameses.rcp.control.XTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        xList1 = new com.rameses.rcp.control.XList();
-        jPanel7 = new javax.swing.JPanel();
-        xButton1 = new com.rameses.rcp.control.XButton();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        xDataTable1 = new com.rameses.rcp.control.XDataTable();
-        jPanel6 = new javax.swing.JPanel();
-        xButton3 = new com.rameses.rcp.control.XButton();
-        xButton2 = new com.rameses.rcp.control.XButton();
+        xPanel1 = new com.rameses.rcp.control.XPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        xComboBox1 = new com.rameses.rcp.control.XComboBox();
+        xSubFormPanel1 = new com.rameses.rcp.control.XSubFormPanel();
         jPanel1 = new javax.swing.JPanel();
         photoComponent1 = new com.rameses.enterprise.components.PhotoComponent();
+
+        setPreferredSize(new java.awt.Dimension(656, 512));
+        setLayout(new java.awt.BorderLayout());
+
+        xTabbedPane1.setPreferredSize(new java.awt.Dimension(656, 512));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 10, 10, 10));
         jPanel2.setLayout(new java.awt.BorderLayout());
@@ -104,125 +101,30 @@ public class UserPage extends javax.swing.JPanel {
 
         xTabbedPane1.addTab("  General Info     ", jPanel2);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 10, 10, 10));
-        jPanel3.setLayout(new java.awt.BorderLayout());
+        xPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 10));
-        jPanel4.setPreferredSize(new java.awt.Dimension(180, 200));
-        jPanel4.setLayout(new java.awt.BorderLayout());
+        jPanel8.setPreferredSize(new java.awt.Dimension(0, 40));
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 0);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel8.setLayout(flowLayout1);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Domains");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
-        jPanel4.add(jLabel1, java.awt.BorderLayout.NORTH);
+        jLabel3.setText("Select Domain");
+        jPanel8.add(jLabel3);
 
-        xList1.setItems("domainList");
-        xList1.setName("selectedDomain"); // NOI18N
-        xList1.setDynamic(true);
-        xList1.setFixedCellHeight(20);
-        jScrollPane1.setViewportView(xList1);
+        xComboBox1.setItems("xdomainList");
+        xComboBox1.setName("xdomain"); // NOI18N
+        xComboBox1.setAllowNull(false);
+        xComboBox1.setPreferredSize(new java.awt.Dimension(250, 40));
+        jPanel8.add(xComboBox1);
 
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        xPanel1.add(jPanel8, java.awt.BorderLayout.NORTH);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
-        jPanel7.setLayout(new com.rameses.rcp.control.layout.XLayout());
+        xSubFormPanel1.setDepends(new String[] {"xdomain"});
+        xSubFormPanel1.setHandler("roleHandler");
+        xSubFormPanel1.setDynamic(true);
+        xPanel1.add(xSubFormPanel1, java.awt.BorderLayout.CENTER);
 
-        xButton1.setMnemonic('a');
-        xButton1.setName("addUsergroup"); // NOI18N
-        xButton1.setText("Add");
-        jPanel7.add(xButton1);
-
-        jPanel4.add(jPanel7, java.awt.BorderLayout.SOUTH);
-
-        jPanel3.add(jPanel4, java.awt.BorderLayout.WEST);
-
-        jPanel5.setLayout(new java.awt.BorderLayout());
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Roles");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 5, 0));
-        jPanel5.add(jLabel2, java.awt.BorderLayout.NORTH);
-
-        xDataTable1.setDepends(new String[] {"selectedDomain"});
-        xDataTable1.setHandler("usergroupList");
-        xDataTable1.setName("selectedUsergroup"); // NOI18N
-        xDataTable1.setColumns(new com.rameses.rcp.common.Column[]{
-            new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "role"}
-                , new Object[]{"caption", "Role"}
-                , new Object[]{"width", 100}
-                , new Object[]{"minWidth", 0}
-                , new Object[]{"maxWidth", 0}
-                , new Object[]{"required", false}
-                , new Object[]{"resizable", true}
-                , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", false}
-                , new Object[]{"visible", true}
-                , new Object[]{"visibleWhen", null}
-                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.UPPER}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
-            }),
-            new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "securitygroup.name"}
-                , new Object[]{"caption", "Security Group"}
-                , new Object[]{"width", 100}
-                , new Object[]{"minWidth", 0}
-                , new Object[]{"maxWidth", 0}
-                , new Object[]{"required", false}
-                , new Object[]{"resizable", true}
-                , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", false}
-                , new Object[]{"visible", true}
-                , new Object[]{"visibleWhen", null}
-                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.UPPER}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
-            }),
-            new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "org.name"}
-                , new Object[]{"caption", "Org Name"}
-                , new Object[]{"width", 100}
-                , new Object[]{"minWidth", 0}
-                , new Object[]{"maxWidth", 0}
-                , new Object[]{"required", false}
-                , new Object[]{"resizable", true}
-                , new Object[]{"nullWhenEmpty", true}
-                , new Object[]{"editable", false}
-                , new Object[]{"visible", true}
-                , new Object[]{"visibleWhen", null}
-                , new Object[]{"textCase", com.rameses.rcp.constant.TextCase.UPPER}
-                , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
-            })
-        });
-        xDataTable1.setDynamic(true);
-        xDataTable1.setReadonly(true);
-        xDataTable1.setReadonlyWhen("#{true}");
-        xDataTable1.setShowRowHeader(false);
-        jPanel5.add(xDataTable1, java.awt.BorderLayout.CENTER);
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 0, 0, 0));
-        com.rameses.rcp.control.layout.XLayout xLayout1 = new com.rameses.rcp.control.layout.XLayout();
-        xLayout1.setSpacing(5);
-        jPanel6.setLayout(xLayout1);
-
-        xButton3.setDepends(new String[] {"selectedUsergroup"});
-        xButton3.setDisableWhen("#{selectedUsergroup == null}");
-        xButton3.setMnemonic('e');
-        xButton3.setName("editUsergroup"); // NOI18N
-        xButton3.setText("Edit");
-        jPanel6.add(xButton3);
-
-        xButton2.setDepends(new String[] {"selectedUsergroup"});
-        xButton2.setDisableWhen("#{selectedUsergroup == null}");
-        xButton2.setMnemonic('r');
-        xButton2.setName("removeUsergroup"); // NOI18N
-        xButton2.setText("Remove");
-        jPanel6.add(xButton2);
-
-        jPanel5.add(jPanel6, java.awt.BorderLayout.SOUTH);
-
-        jPanel3.add(jPanel5, java.awt.BorderLayout.CENTER);
-
-        xTabbedPane1.addTab("  Roles and Permissions     ", jPanel3);
+        xTabbedPane1.addTab("Roles and Permissions", xPanel1);
 
         jPanel1.setLayout(new com.rameses.rcp.control.layout.CenterLayout());
 
@@ -231,41 +133,18 @@ public class UserPage extends javax.swing.JPanel {
 
         xTabbedPane1.addTab("  Photo     ", jPanel1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(xTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(xTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        add(xTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel8;
     private com.rameses.enterprise.components.PhotoComponent photoComponent1;
-    private com.rameses.rcp.control.XButton xButton1;
-    private com.rameses.rcp.control.XButton xButton2;
-    private com.rameses.rcp.control.XButton xButton3;
-    private com.rameses.rcp.control.XDataTable xDataTable1;
+    private com.rameses.rcp.control.XComboBox xComboBox1;
     private com.rameses.rcp.control.XFormPanel xFormPanel1;
-    private com.rameses.rcp.control.XList xList1;
+    private com.rameses.rcp.control.XPanel xPanel1;
+    private com.rameses.rcp.control.XSubFormPanel xSubFormPanel1;
     private com.rameses.rcp.control.XTabbedPane xTabbedPane1;
     private com.rameses.rcp.control.XTextField xTextField1;
     private com.rameses.rcp.control.XTextField xTextField2;

@@ -16,16 +16,13 @@ import java.rmi.server.UID;
 public class RoleModel extends CrudFormModel {
     
     String title = "Role";
+
+    public String getConnection() {
+        return caller.getConnection();
+    }
     
+    /*    
     def securitygroup;
-    
-    @PropertyChangeListener
-    def listener = [
-        "entity.(domain|role)" : { o->
-            entity.title = (((entity.domain)?entity.domain:" ") + " " + ((entity.role)?entity.role:"")).trim();
-        }
-    ];
-    
     def securityGroupList = [
         fetchList: { o->
             def m = [_schemaname: 'sys_securitygroup'];
@@ -56,7 +53,7 @@ public class RoleModel extends CrudFormModel {
         }
         return Inv.lookupOpener( "securitygroup:open", [entity:securitygroup, handler: h]);
     }
-    
+    */
     
 }
         

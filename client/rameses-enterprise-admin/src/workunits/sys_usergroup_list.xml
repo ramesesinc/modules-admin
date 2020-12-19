@@ -2,13 +2,14 @@
           schemaName="sys_usergroup" cols="domain,role,title">
     
     <invokers>
+        <!--
         <invoker folderid="/explorer/admin" 
                  caption="Roles" action="init" 
                  role="SYSADMIN" permission="system" index="2" />
-        
-        <invoker folderid="/home/admin" 
+        -->
+        <invoker type="sys_role_list:main" 
                  caption="Manage Roles" action="init" 
-                 role="SYSADMIN" permission="system" index="0" 
+                 index="0" 
                  icon="home/icons/admin-role.png" />
    </invokers>
 </workunit>

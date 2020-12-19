@@ -1,0 +1,10 @@
+<workunit>
+    <invokers>
+        <invoker type="sys_user_role_list:main" caption="Main User Role" 
+                 action="init" index="10" />
+    </invokers>
+    <code class="com.rameses.admin.models.UserRoleUserModel" />
+    <pages>
+        <page template="com.rameses.admin.views.UserRoleUserPage" />
+    </pages>    
+</workunit>
