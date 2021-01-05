@@ -1,0 +1,9 @@
+<workunit>
+    <invokers>
+        <invoker type="roleActions" caption="Add Role" action="addRole" />
+    </invokers>    
+    <code class="com.rameses.admin.plugin.models.UserRoleListModel" />
+    <pages>
+        <page template="com.rameses.admin.plugin.views.UserRoleListPage"/>
+    </pages>
+</workunit>

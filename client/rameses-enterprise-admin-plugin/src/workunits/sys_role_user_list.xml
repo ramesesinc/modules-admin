@@ -1,0 +1,21 @@
+<workunit>
+    <invokers>
+        <invoker type="sys_role:form:formActions" 
+                 caption="View Users" visibleWhen="#{ mode =='read' }"/>
+        
+        <invoker type="formActions" 
+                 caption="Close" action="_close" />
+        
+        <invoker type="formActions" 
+                 caption="Refresh" action="refreshList" />
+        
+        <invoker type="formActions" 
+                 caption="View User" action="viewUser" />
+    </invokers>
+    
+    <code class="com.rameses.admin.plugin.models.RoleUsersModel" />
+    
+    <pages>
+        <page template="com.rameses.admin.plugin.views.RoleUsersPage" />
+    </pages>    
+</workunit>

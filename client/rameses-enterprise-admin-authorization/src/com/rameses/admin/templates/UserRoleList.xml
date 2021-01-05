@@ -1,6 +1,0 @@
-<workunit>
-    <code class="com.rameses.admin.models.UserRoleListModel" />
-    <pages>
-        <page template="com.rameses.admin.views.UserRoleListPage"/>
-    </pages>
-</workunit>

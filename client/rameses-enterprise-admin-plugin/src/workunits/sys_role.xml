@@ -1,0 +1,11 @@
+<workunit schemaName="sys_role" callerRefreshMethod="search">
+    <invokers>
+       <invoker type="sys_role:create" caption="Role" action="create" target="popup"/>
+        <invoker type="sys_role:open" caption="Role" action="open" target="popup"/>
+        
+    </invokers>
+    <code class="com.rameses.admin.plugin.models.RoleModel" />
+    <pages>
+        <page template="com.rameses.admin.plugin.views.RolePage"/>
+    </pages>
+</workunit>

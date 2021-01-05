@@ -1,5 +1,5 @@
 <workunit extends="com/rameses/seti2/templates/CrudNodeList.xml" 
-          schemaName="sys_usergroup" cols="domain,role,title">
+          schemaName="sys_usergroup" cols="domain,role,title"  showClose="false">
     
     <invokers>
         <!--

@@ -1,3 +1,0 @@
-<workunit extends="com/rameses/seti2/templates/CrudList.xml" 
-          schemaName="sys_role" cols="name,title">
-</workunit>
