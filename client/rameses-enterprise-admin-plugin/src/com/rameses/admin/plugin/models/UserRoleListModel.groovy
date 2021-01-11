@@ -25,6 +25,7 @@ public class UserRoleListModel extends AbstractUserRoleModel {
         def s = { o->
             o.roles.each { r->
                 def m = [_schemaname : "sys_user_role" ];
+                m.user = user;
                 m.userid = user.objid;
                 m.username = user.username;
                 m.role = r;
