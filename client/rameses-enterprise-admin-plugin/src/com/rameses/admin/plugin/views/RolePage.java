@@ -49,6 +49,7 @@ public class RolePage extends javax.swing.JPanel {
         xTextField1.setVisibleWhen("#{ mode == 'create' }");
         xTextField1.setPreferredSize(new java.awt.Dimension(0, 20));
         xTextField1.setRequired(true);
+        xTextField1.setSpaceChar('_');
         xFormPanel1.add(xTextField1);
 
         xLabel1.setCaption("Role");
