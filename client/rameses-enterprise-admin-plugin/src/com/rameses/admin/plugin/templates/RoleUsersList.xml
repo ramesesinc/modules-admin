@@ -1,0 +1,5 @@
+<workunit extends="com/rameses/seti2/templates/CrudNodeList.xml" 
+          schemaName="sys_user_role"
+          cols="username,user.lastname,user.firstname">
+    <code class="com.rameses.admin.plugin.models.RoleUsersListModel" />
+</workunit>

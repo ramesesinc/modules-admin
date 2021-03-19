@@ -26,10 +26,11 @@
         <Property name="handler" type="java.lang.String" value=""/>
         <Property name="handlerName" type="java.lang.String" value="listHandler"/>
         <Property name="name" type="java.lang.String" value="selectedRole" noResource="true"/>
-        <Property name="orderBy" type="java.lang.String" value="org.name ASC, role ASC"/>
+        <Property name="orderBy" type="java.lang.String" value="role ASC, org.name ASC"/>
         <Property name="queryName" type="java.lang.String" value="userQuery"/>
         <Property name="schemaName" type="java.lang.String" value="sys_user_role"/>
         <Property name="allowDelete" type="boolean" value="true"/>
+        <Property name="dynamic" type="boolean" value="true"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

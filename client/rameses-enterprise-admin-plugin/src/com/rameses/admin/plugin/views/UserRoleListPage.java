@@ -83,10 +83,11 @@ public class UserRoleListPage extends javax.swing.JPanel {
         schemaList1.setHandler("");
         schemaList1.setHandlerName("listHandler");
         schemaList1.setName("selectedRole"); // NOI18N
-        schemaList1.setOrderBy("org.name ASC, role ASC");
+        schemaList1.setOrderBy("role ASC, org.name ASC");
         schemaList1.setQueryName("userQuery");
         schemaList1.setSchemaName("sys_user_role");
         schemaList1.setAllowDelete(true);
+        schemaList1.setDynamic(true);
         add(schemaList1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 

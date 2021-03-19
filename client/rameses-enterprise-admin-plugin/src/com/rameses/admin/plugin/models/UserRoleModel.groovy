@@ -41,6 +41,7 @@ public class UserRoleModel extends CrudFormModel {
     
     void afterOpen() {
         init();
+        mode = "open";
     }
     
     def permissionListModel = [
@@ -62,25 +63,47 @@ public class UserRoleModel extends CrudFormModel {
     ] as EditorListModel; 
     
     def doOk() {
-        def str = "{NULL}";
-        if( unselected ) {
-            def vv = unselected.groupBy{ it.object };
-            def vl = [];
-            vv.each { k,v->
-                vl << k + ".(" + v*.permission.join("|") + ")";
-            }
-            str = vl.join( "|" );
+        if(mode=="create") {
+            save();
         }
-        def m = [:];
-        m._schemaname = schemaName;
-        m.objid = entity.objid;
-        m.exclude = str;
-        persistenceService.update( m );
+        else {
+            def str = "{NULL}";
+            if( unselected ) {
+                def vv = unselected.groupBy{ it.object };
+                def vl = [];
+                vv.each { k,v->
+                    vl << k + ".(" + v*.permission.join("|") + ")";
+                }
+                str = vl.join( "|" );
+            }
+            def m = [:];
+            m._schemaname = schemaName;
+            m.objid = entity.objid;
+            m.exclude = str;
+            persistenceService.update( m );
+        }
         return "_close";
     }
     
     def doCancel() {
         return "_close";
+    }
+    
+    @PropertyChangeListener
+    def propertyListener = [
+        "entity.user" : { o->
+            entity.userid = o.objid;
+            entity.username = o.username;
+            binding.refresh("entity.user");
+        }
+    ];
+    
+    def create() {
+        entity = [:];
+        entity.role = caller.getSelectedNode().name;
+        mode = "create";
+        _inited_ = true;
+        return "create"
     }
 }
         

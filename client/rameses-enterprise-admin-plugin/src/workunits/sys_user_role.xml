@@ -2,10 +2,12 @@
     <invokers>
         <invoker type="sys_user_role:open" caption="User Role" 
                  action="open" index="10" target="popup" />
-        
+        <invoker type="sys_user_role:create" caption="Add User Role" 
+                 action="create" index="10" target="popup" />
     </invokers>
     <code class="com.rameses.admin.plugin.models.UserRoleModel" />
     <pages>
         <page template="com.rameses.admin.plugin.views.UserRolePage" />
+        <page name="create" template="com.rameses.admin.plugin.views.RoleUserPage" />
     </pages>    
 </workunit>

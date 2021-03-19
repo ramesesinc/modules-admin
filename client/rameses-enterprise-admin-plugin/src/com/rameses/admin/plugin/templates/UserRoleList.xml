@@ -1,6 +1,8 @@
 <workunit>
     <invokers>
         <invoker type="roleActions" caption="Add Role" action="addRole" />
+        <invoker type="roleActions" caption="Change Org" action="changeOrg" xvisibleWhen="#{ selectedRole.objid!=null &amp;&amp; selectedRole.org?.objid == null }"/>
+        <invoker type="roleActions" caption="Remove Org" action="removeOrg" xvisibleWhen="#{ selectedRole.objid!=null &amp;&amp; selectedRole.org?.objid != null }"/>
     </invokers>    
     <code class="com.rameses.admin.plugin.models.UserRoleListModel" />
     <pages>
