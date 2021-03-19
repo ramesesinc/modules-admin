@@ -6,6 +6,9 @@ class TerminalAdminService {
 	@DataContext('terminal') 
 	def em;  
 
+	@Service('QueryService')
+	def querySvc; 
+
 	@ProxyMethod 
 	public void generateKeys( param ) {
 		if ( !param.size ) throw new Exception('Please specify size');
@@ -39,4 +42,35 @@ class TerminalAdminService {
 		newdata.terminalid = param.terminalid; 
 		em.find( findby ).update( newdata ); 
 	} 		
+
+
+	/*
+		This is called by the etracs web interface due to old UI implementation
+	 */
+	@ProxyMethod 
+	public def getList( param ) {
+		param._schemaname = 'terminal'; 
+
+		def wheres = [];
+		def wheremap = [:]; 
+		if ( param.where instanceof List ) {
+			if ( param.where.size() > 0 ) wheres << param.where.get(0); 
+			if ( param.where.size() > 1 ) wheremap.putAll( param.where.get(1)); 
+		} 
+		else if ( param.where instanceof Object[] ) {
+			if ( param.where.length > 0 ) wheres << param.where[0]; 
+			if ( param.where.length > 1 ) wheremap.putAll( param.where[1]); 
+		}
+		else if ( param.where instanceof String ) { 
+			wheres << param.where; 
+		}
+
+		if ( param.searchtext ) {
+			wheres << '( terminalid like :searchtext OR macaddress like :searchtext )'; 
+			wheremap.searchtext = '%'+ param.searchtext +'%'; 
+		}
+
+		param.where = [ wheres.join(' AND '), wheremap ];
+		return querySvc.getList( param ); 
+	} 
 }
