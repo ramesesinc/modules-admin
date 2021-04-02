@@ -16,6 +16,13 @@ class UserRolePersistenceInterceptor {
 				userEm.create( a.user );
 			}
 		}
+		a.uid = a.user.objid + '-' + a.role + ( a.org?.objid !=null ? '-' + a.org.objid : '' );
+	}
+
+	@Before(pattern="PersistenceService.update", eval="#{ args[0]._schemaname == 'sys_user_role' }")
+	public def beforeUpdateRole(def evt) {
+		def a = evt.args[0];
+		a.uid = a.user.objid + '-' + a.role + ( a.org?.objid !=null ? '-' + a.org.objid : '' );
 	}
 
 	@Before(pattern="PersistenceService.removeEntity", eval="#{ args[0]._schemaname == 'sys_user_role' }")

@@ -86,7 +86,7 @@ public class RoleUsersPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "username"}
+                new Object[]{"name", "user.username"}
                 , new Object[]{"caption", "User Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
@@ -101,7 +101,7 @@ public class RoleUsersPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "lastname"}
+                new Object[]{"name", "user.lastname"}
                 , new Object[]{"caption", "Last Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
@@ -116,7 +116,7 @@ public class RoleUsersPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "firstname"}
+                new Object[]{"name", "user.firstname"}
                 , new Object[]{"caption", "First Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
@@ -131,7 +131,7 @@ public class RoleUsersPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "middlename"}
+                new Object[]{"name", "user.middlename"}
                 , new Object[]{"caption", "Middle Name"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}
@@ -146,7 +146,7 @@ public class RoleUsersPage extends javax.swing.JPanel {
                 , new Object[]{"typeHandler", new com.rameses.rcp.common.TextColumnHandler()}
             }),
             new com.rameses.rcp.common.Column(new Object[]{
-                new Object[]{"name", "jobtitle"}
+                new Object[]{"name", "user.jobtitle"}
                 , new Object[]{"caption", "Job Title"}
                 , new Object[]{"width", 100}
                 , new Object[]{"minWidth", 0}

@@ -10,7 +10,13 @@
                  caption="Refresh" action="refreshList" />
         
         <invoker type="formActions" 
-                 caption="View User" action="viewUser" />
+                 caption="Add User" action="addUserRole" />
+        
+        <invoker type="formActions" 
+                 caption="View" action="viewUserRole" />
+        
+        <invoker type="formActions" 
+                 caption="Remove User" action="removeUserRole" />
     </invokers>
     
     <code class="com.rameses.admin.plugin.models.RoleUsersModel" />

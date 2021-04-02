@@ -1,5 +1,6 @@
 <workunit schemaName="sys_user_role">
     <invokers>
+        <!-- user roles -->
         <invoker type="sys_user_role:open" caption="User Role" 
                  action="open" index="10" target="popup" />
         <invoker type="sys_user_role:create" caption="Add User Role" 

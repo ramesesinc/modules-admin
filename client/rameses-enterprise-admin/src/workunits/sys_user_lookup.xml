@@ -1,4 +1,5 @@
-<workunit extends="com/rameses/seti2/templates/CrudLookup.xml"  schemaName="sys_user">
+<workunit extends="com/rameses/seti2/templates/CrudLookup.xml"  schemaName="sys_user" 
+          allowCreate="false" allowOpen="false" allowDelete="false">
     <invokers>
         <invoker type="sys_user:lookup" caption="Lookup User" target="popup" 
                 action="init"

@@ -14,7 +14,6 @@ public class UserRoleModel extends CrudFormModel {
     def selectedObject;
     def objectList;
     def permissions;
-    
     def unselected = [];
     
     public String getConnection() {
@@ -100,7 +99,13 @@ public class UserRoleModel extends CrudFormModel {
     
     def create() {
         entity = [:];
-        entity.role = caller.getSelectedNode().name;
+        
+        if( caller instanceof RoleUsersModel ) {
+            entity.role = caller.entity.name;
+        }
+        else {
+            entity.role = caller.getSelectedNode().name;
+        }
         mode = "create";
         _inited_ = true;
         return "create"

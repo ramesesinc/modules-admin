@@ -27,6 +27,10 @@ public class RoleModel extends CrudFormModel {
         removeItem("permissions", selectedItem);
     }
     
+    void afterCreate() {
+        entity.system = 0;
+    }
+    
     /*    
     def securitygroup;
     def securityGroupList = [

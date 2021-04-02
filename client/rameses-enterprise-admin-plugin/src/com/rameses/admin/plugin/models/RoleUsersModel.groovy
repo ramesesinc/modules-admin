@@ -15,22 +15,43 @@ public class RoleUsersModel {
     def entity;
     def selectedItem;
     
+    public String getConnection() {
+        return caller.getConnection();
+    }
+    
     def listHandler = [
-        
         fetchList: { o->
             def  m =[ _schemaname: "sys_user_role" ];
             m.findBy = [role: entity.name];
             m.orderBy = "role";
-            m.tag = "user_by_role";
             return caller.queryService.getList( m );
         }
         
     ] as BasicListModel;
 
-    def viewUser() {
-        return Inv.lookupOpener( "sys_user:open", [entity: [objid: selectedItem.userid ]]);
+    def viewUserRole() {
+        def s = {
+            refreshList();
+        }
+        return Inv.lookupOpener( "sys_user_role:open", [entity: [objid: selectedItem.objid ], onSaveHandler:s]);
     }
     
+    def addUserRole() {
+        def s = {
+            refreshList();
+        }
+        return Inv.lookupOpener( "sys_user_role:create", [onSaveHandler:s]);
+    }
+    
+    void removeUserRole() {
+        if(!selectedItem ) return;
+        if(!MsgBox.confirm("You are about to remove this user. Proceed?")) return;
+        def m = [_schemaname: "sys_user_role"];
+        m.objid = selectedItem.objid;
+        caller.persistenceService.removeEntity(m);
+        refreshList();
+    }
+
     void refreshList() {
         listHandler.reload();
     }

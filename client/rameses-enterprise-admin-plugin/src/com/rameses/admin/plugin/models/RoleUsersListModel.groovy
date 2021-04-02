@@ -11,6 +11,10 @@ public class RoleUsersListModel extends CrudListModel {
     
     def _roleList;
     
+    public boolean isShowClose() {
+        return true;
+    }
+    
     public def getNodeList() {
         if( !_roleList ) {
             def m = [_schemaname: "sys_role"];

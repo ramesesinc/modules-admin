@@ -42,6 +42,26 @@ public class UserRoleListModel extends AbstractUserRoleModel {
         
     }
     
+    def changeOrg() {
+        if(!selectedRole) throw new Exception("Please select a role"); 
+        def h = { org->
+            def m = [_schemaname : "sys_user_role" ];
+            m.findBy = [objid: selectedRole.objid];
+            m.org = org;
+            persistenceService.update( m );
+            listHandler.reload();
+        }
+        return Inv.lookupOpener( "org:lookup", [onselect:h] );
+    }
+    
+    def removeOrg() {
+        if(!selectedRole) throw new Exception("Please select a role"); 
+        def m = [_schemaname : "sys_user_role" ];
+        m.findBy = [objid: selectedRole.objid];
+        m.org = [objid: "{NULL}", name: "{NULL}"];
+        persistenceService.update( m );
+        listHandler.reload();
+    }
 }
 
         
